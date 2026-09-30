@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026년 10월 리영어 통합 학습 플랜 | Le English</title>
+  
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & RESET
+       ========================================================================== */
+    :root {
+      --font-stack: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+      
+      /* Colors */
+      --bg-canvas: #F9F9FB;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F3F6;
+      --bg-contrast: #181A20;
+      
+      --text-main: #191F28;
+      --text-body: #4E5968;
+      --text-muted: #8B95A1;
+      --text-light: #F9FAFB;
+      
+      --brand-primary: #1C58D9;
+      --brand-accent: #EBF2FF;
+      --brand-point: #00B06B;
+      --brand-point-bg: #E8F8F0;
+      
+      --border-light: #E5E8EB;
+      --border-focus: #B0B8C1;
+      
+      /* Layout & Spacing */
+      --container-max: 1040px;
+      --mobile-pad: 20px;
+      --section-space: 88px;
+      --card-radius: 20px;
+      --card-radius-sm: 14px;
+      
+      /* Shadows */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.08);
+      
+      /* Transitions */
+      --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-stack);
+      background-color: var(--bg-canvas);
+      color: var(--text-body);
+      line-height: 1.65;
+      word-break: keep-all;
+      overflow-x: hidden;
+    }
+
+    /* Accessibility: Skip Links & Reduced Motion */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 16px;
+      background: var(--text-main);
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 9999;
+      border-radius: 4px;
+      font-size: 14px;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Common Utility Layouts */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--mobile-pad);
+    }
+
+    .section-wrap {
+      padding: var(--section-space) 0;
+      position: relative;
+    }
+
+    /* Typography Components */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* Micro-interaction Reveal base */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s var(--ease-standard), transform 0.65s var(--ease-standard);
+      will-change: opacity, transform;
+    }
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Core Statement Block */
+    .statement-box {
+      background: var(--bg-surface);
+      border-left: 4px solid var(--brand-primary);
+      padding: 24px 20px;
+      border-radius: var(--card-radius-sm);
+      box-shadow: var(--shadow-sm);
+      margin: 28px 0;
+    }
+    .statement-box.dark {
+      background: #111317;
+      border-left-color: #4A85F6;
+      color: #FFFFFF;
+    }
+    .statement-quote {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--text-main);
+      display: block;
+    }
+    .statement-box.dark .statement-quote {
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       SECTION 01 — HERO
+       ========================================================================== */
+    .hero-section {
+      padding-top: 56px;
+      padding-bottom: 64px;
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-canvas) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--brand-accent);
+      color: var(--brand-primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .hero-headline {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .hero-headline .highlight {
+      position: relative;
+      display: inline-block;
+      color: var(--brand-primary);
+      font-weight: 900;
+    }
+
+    .hero-headline .highlight::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: rgba(28, 88, 217, 0.14);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-body);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    /* Abstract Pure CSS Graphic: Sound Wave & Speaking Bubble */
+    .hero-abstract-art {
+      width: 130px;
+      height: 60px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 12px;
+      background: var(--bg-surface);
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+    .wave-bar {
+      width: 4px;
+      background: var(--brand-primary);
+      border-radius: 999px;
+      height: 10px;
+      animation: soundPulse 1.4s infinite ease-in-out alternate;
+    }
+    .wave-bar:nth-child(1) { height: 14px; animation-delay: 0.1s; }
+    .wave-bar:nth-child(2) { height: 26px; animation-delay: 0.3s; }
+    .wave-bar:nth-child(3) { height: 38px; animation-delay: 0.5s; }
+    .wave-bar:nth-child(4) { height: 28px; animation-delay: 0.2s; }
+    .wave-bar:nth-child(5) { height: 16px; animation-delay: 0.4s; }
+
+    @keyframes soundPulse {
+      0% { transform: scaleY(0.5); opacity: 0.5; }
+      100% { transform: scaleY(1.15); opacity: 1; }
+    }
+
+    /* ==========================================================================
+       SECTION 02 — SEPTEMBER → OCTOBER TIMELINE
+       ========================================================================== */
+    .evolution-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      position: relative;
+    }
+
+    .evolution-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--card-radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .evolution-card.current {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .evo-month {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .evolution-card:not(.current) .evo-month { color: var(--text-muted); }
+    .evolution-card.current .evo-month { color: var(--brand-primary); }
+
+    .evo-badge-action {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .evolution-card:not(.current) .evo-badge-action {
+      background: #F1F3F5;
+      color: #616B77;
+    }
+    .evolution-card.current .evo-badge-action {
+      background: var(--brand-accent);
+      color: var(--brand-primary);
+    }
+
+    .evo-flow-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .evo-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .evo-arrow {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .evo-summary-quote {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.5;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border-light);
+    }
+    .evolution-card:not(.current) .evo-summary-quote { color: #6B7684; }
+    .evolution-card.current .evo-summary-quote { color: var(--brand-primary); }
+
+    /* Connector between Sep & Oct */
+    .evolution-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 0;
+    }
+    .connector-badge {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-primary);
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ==========================================================================
+       SECTION 03 — SPEAKING OUTPUT OVERVIEW
+       ========================================================================== */
+    .parallel-path-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .path-card {
+      background: var(--bg-surface);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border-light);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .path-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .path-grade-tag {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand-point);
+    }
+    .path-grade-tag.upper {
+      color: var(--brand-primary);
+    }
+
+    .path-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 22px;
+    }
+
+    .path-step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+    .path-step-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      background: var(--bg-canvas);
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .path-step-index {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #E5E8EB;
+      color: #6B7684;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .path-step-item.target {
+      background: var(--brand-accent);
+      color: var(--brand-primary);
+      border: 1px solid rgba(28, 88, 217, 0.2);
+    }
+    .path-step-item.target .path-step-index {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       SECTION 04 — LOWER GRADES DETAIL
+       ========================================================================== */
+    .interactive-sequence {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 28px 0;
+    }
+
+    .seq-step {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      transition: transform 0.2s var(--ease-standard), border-color 0.2s;
+    }
+    .seq-step:hover {
+      border-color: var(--brand-primary);
+      transform: translateX(4px);
+    }
+    .seq-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .seq-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .seq-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .seq-action {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .practice-pill-box {
+      background: var(--bg-surface);
+      border-radius: var(--card-radius-sm);
+      border: 1px solid var(--border-light);
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .practice-pill-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .pill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill-item {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-body);
+      background: var(--bg-canvas);
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    /* ==========================================================================
+       SECTION 05 — UPPER GRADES DETAIL
+       ========================================================================== */
+    .gap-comparison-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--card-radius);
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .gap-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+    .gap-item.ok {
+      background: #F4FBF7;
+      margin-bottom: 8px;
+    }
+    .gap-item.challenge {
+      background: #FBF4F4;
+    }
+    .gap-left {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .gap-badge {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .gap-badge.ok {
+      background: #D9F4E5;
+      color: #0E7843;
+    }
+    .gap-badge.challenge {
+      background: #FDE8E8;
+      color: #C32828;
+    }
+
+    .training-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .training-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--card-radius);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .training-num {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--brand-primary);
+      margin-bottom: 6px;
+    }
+    .training-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .training-chain {
+      background: var(--bg-canvas);
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .chain-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chain-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .chain-row span:last-child {
+      color: var(--brand-primary);
+    }
+
+    .chain-nums {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--brand-primary);
+      padding: 6px 0;
+    }
+
+    .training-desc {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       SECTION 06 — BOOK MUSEUM
+       ========================================================================== */
+    .museum-section {
+      background: #F4F6FA;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .book-card {
+      background: var(--bg-surface);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 28px;
+    }
+
+    .book-cover-wrap {
+      width: 100%;
+      background: #EAEFF5;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .book-img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s var(--ease-standard);
+    }
+    .book-card:hover .book-img {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .book-body {
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .book-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-point);
+      margin-bottom: 6px;
+    }
+    .book-category.upper {
+      color: var(--brand-primary);
+    }
+
+    .book-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .book-sub {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .book-desc {
+      font-size: 15px;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .book-quote {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--brand-primary);
+      background: var(--brand-accent);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      min-height: 48px;
+      touch-action: manipulation;
+      transition: background-color 0.2s, transform 0.15s ease;
+      margin-top: auto;
+    }
+    .cta-btn:hover {
+      background-color: #1346B8;
+      transform: translateY(-1px);
+    }
+    .cta-btn:active {
+      transform: translateY(1px);
+    }
+
+    .upper-intro-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--card-radius);
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .upper-books-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    /* ==========================================================================
+       SECTION 07 — ENDING & FOOTER
+       ========================================================================== */
+    .ending-section {
+      background: var(--bg-contrast);
+      color: var(--text-light);
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .ending-main-quote {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.45;
+      color: #FFFFFF;
+      max-width: 620px;
+      margin: 0 auto 48px;
+    }
+
+    .ending-summary-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      max-width: 680px;
+      margin: 0 auto 56px;
+      text-align: left;
+    }
+
+    .ending-card {
+      background: #232730;
+      border-radius: var(--card-radius-sm);
+      padding: 22px 20px;
+      border: 1px solid #323846;
+    }
+
+    .ending-card-role {
+      font-size: 13px;
+      font-weight: 700;
+      color: #6C9AFF;
+      margin-bottom: 8px;
+    }
+    .ending-card-text {
+      font-size: 15px;
+      color: #D1D6DB;
+      line-height: 1.6;
+    }
+
+    .ending-final-headline {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+
+    .site-footer {
+      border-top: 1px solid #2B303C;
+      padding-top: 32px;
+      font-size: 13px;
+      color: #7D8592;
+      letter-spacing: 0.1em;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESKTOP LAYOUT (min-width: 768px)
+       ========================================================================== */
+    @media (min-width: 768px) {
+      :root {
+        --section-space: 110px;
+      }
+
+      .hero-headline {
+        font-size: 44px;
+      }
+      .hero-desc {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .evolution-grid {
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+      }
+      .evolution-divider {
+        padding: 0 8px;
+      }
+      .connector-badge {
+        transform: rotate(-90deg);
+      }
+
+      .parallel-path-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .interactive-sequence {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .seq-step {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .training-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .upper-books-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .book-card {
+        margin-bottom: 0;
+      }
+
+      .ending-summary-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .ending-main-quote {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">본문 바로가기</a>
+
+  <!-- ==========================================================================
+       SECTION 01 — HERO
+       ========================================================================== -->
+  <header class="hero-section" id="hero">
+    <div class="container">
+      <div class="hero-badge">2026 OCTOBER &bull; LE ENGLISH MONTHLY PLAN</div>
+      
+      <h1 class="hero-headline">
+        아는 영어를,<br>
+        <span class="highlight">입에서 나오는 영어로.</span>
+      </h1>
+      
+      <p class="hero-sub">Speaking Output</p>
+      
+      <p class="hero-desc">
+        읽으면 알고, 들으면 이해하는 영어를<br>
+        실제로 입 밖으로 꺼내 사용하는 영어로.<br><br>
+        <strong>10월 리영어</strong>는 아이들이 지금까지 배운 영어를<br>
+        더 많이, 더 자주 말해 보는 달입니다.
+      </p>
+
+      <!-- Abstract Graphic: Pure CSS Sound Wave (No External Lib) -->
+      <div class="hero-abstract-art" aria-hidden="true">
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         SECTION 02 — SEPTEMBER → OCTOBER
+         ========================================================================== -->
+    <section class="section-wrap" aria-labelledby="section-evo-title">
+      <div class="container">
+        <span class="eyebrow">Curriculum Evolution</span>
+        <h2 id="section-evo-title" class="section-title">쓰기에서 말하기로,<br>자연스럽게 확장됩니다</h2>
+        <p class="section-desc">9월에 다진 문장 구성력이 10월에는 입 밖으로 발화되는 출력 훈련으로 이어집니다.</p>
+
+        <div class="evolution-grid">
+          <!-- September Card -->
+          <div class="evolution-card fade-up">
+            <div class="evo-month">September</div>
+            <span class="evo-badge-action">WRITE</span>
+            <div class="evo-flow-tags">
+              <div class="evo-tag-row">
+                <span>소리</span>
+                <span class="evo-arrow">&rarr;</span>
+                <span>철자</span>
+              </div>
+              <div class="evo-tag-row">
+                <span>단어</span>
+                <span class="evo-arrow">&rarr;</span>
+                <span>문장</span>
+              </div>
+            </div>
+            <div class="evo-summary-quote">
+              &ldquo;손으로 써 보고<br>문장을 만들어 보는 달&rdquo;
+            </div>
+          </div>
+
+          <!-- Connecting Badge -->
+          <div class="evolution-divider" aria-hidden="true">
+            <div class="connector-badge">&darr;</div>
+          </div>
+
+          <!-- October Card (Current) -->
+          <div class="evolution-card current fade-up">
+            <div class="evo-month">October</div>
+            <span class="evo-badge-action">SPEAK</span>
+            <div class="evo-flow-tags">
+              <div class="evo-tag-row">
+                <span>의미</span>
+                <span class="evo-arrow">&rarr;</span>
+                <span>영어</span>
+              </div>
+              <div class="evo-tag-row">
+                <span>상황</span>
+                <span class="evo-arrow">&rarr;</span>
+                <span>영어 발화</span>
+              </div>
+            </div>
+            <div class="evo-summary-quote">
+              &ldquo;이미 배운 영어를<br>입 밖으로 꺼내 보는 달&rdquo;
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         SECTION 03 — SPEAKING OUTPUT OVERVIEW
+         ========================================================================== -->
+    <section class="section-wrap" style="background-color: #FFFFFF;" aria-labelledby="section-overview-title">
+      <div class="container">
+        <span class="eyebrow">Two Parallel Paths</span>
+        <h2 id="section-overview-title" class="section-title">
+          같은 &lsquo;말하기&rsquo;라도<br>아이들의 출발점은 다릅니다.
+        </h2>
+        <p class="section-desc">저학년과 고학년의 발달 단계에 맞춘 최적화된 말하기 트레이닝이 독립된 경로로 진행됩니다.</p>
+
+        <div class="parallel-path-grid">
+          <!-- Left: Lower Grades -->
+          <div class="path-card fade-up">
+            <div class="path-header">
+              <span class="path-grade-tag">&bull; LOWER GRADES</span>
+            </div>
+            <h3 class="path-title">초등 저학년 : 단어 발화량 늘리기</h3>
+            <ol class="path-step-list">
+              <li class="path-step-item">
+                <span class="path-step-index">1</span>
+                <span>파닉스</span>
+              </li>
+              <li class="path-step-item">
+                <span class="path-step-index">2</span>
+                <span>단어 읽기</span>
+              </li>
+              <li class="path-step-item">
+                <span class="path-step-index">3</span>
+                <span>의미 연결</span>
+              </li>
+              <li class="path-step-item target">
+                <span class="path-step-index">4</span>
+                <span>말하기 (Speaking Output)</span>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Right: Upper Grades -->
+          <div class="path-card fade-up">
+            <div class="path-header">
+              <span class="path-grade-tag upper">&bull; UPPER GRADES</span>
+            </div>
+            <h3 class="path-title">초등 고학년 : 문장 발화 자동화</h3>
+            <ol class="path-step-list">
+              <li class="path-step-item">
+                <span class="path-step-index">1</span>
+                <span>문장 읽기</span>
+              </li>
+              <li class="path-step-item">
+                <span class="path-step-index">2</span>
+                <span>문장 이해</span>
+              </li>
+              <li class="path-step-item">
+                <span class="path-step-index">3</span>
+                <span>상황 &middot; 의미 연상</span>
+              </li>
+              <li class="path-step-item target">
+                <span class="path-step-index">4</span>
+                <span>영어 발화 (Automated Speaking)</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         SECTION 04 — LOWER GRADES DETAIL
+         ========================================================================== -->
+    <section class="section-wrap" aria-labelledby="section-lower-title">
+      <div class="container">
+        <span class="eyebrow">Lower Grades Strategy</span>
+        <h2 id="section-lower-title" class="section-title">
+          읽기가 완성될 때까지<br>말하기를 기다릴 필요는 없습니다.
+        </h2>
+        <p class="section-desc">
+          리영어 수업에서 저학년 아이들을 관찰하면 교사가 들려주는 영어 소리를 듣고 비슷한 소리로 빠르게 따라 하는 강점을 지니고 있습니다. 10월에는 이 폭발적인 청각 모방력을 적극 활용합니다.
+        </p>
+
+        <!-- Interactive Process Sequence UI -->
+        <div class="interactive-sequence" role="list">
+          <div class="seq-step fade-up" role="listitem">
+            <div class="seq-icon" aria-hidden="true">&#128066;</div>
+            <div class="seq-text-wrap">
+              <span class="seq-label">STEP 01</span>
+              <span class="seq-action">듣고</span>
+            </div>
+          </div>
+          <div class="seq-step fade-up" role="listitem">
+            <div class="seq-icon" aria-hidden="true">&#128483;</div>
+            <div class="seq-text-wrap">
+              <span class="seq-label">STEP 02</span>
+              <span class="seq-action">따라 하고</span>
+            </div>
+          </div>
+          <div class="seq-step fade-up" role="listitem">
+            <div class="seq-icon" aria-hidden="true">&#128444;</div>
+            <div class="seq-text-wrap">
+              <span class="seq-label">STEP 03</span>
+              <span class="seq-action">보고 말하고</span>
+            </div>
+          </div>
+          <div class="seq-step fade-up" role="listitem">
+            <div class="seq-icon" aria-hidden="true">&#127918;</div>
+            <div class="seq-text-wrap">
+              <span class="seq-label">STEP 04</span>
+              <span class="seq-action">다시 말하기</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editorial Statement Box -->
+        <div class="statement-box fade-up">
+          <p class="statement-quote">
+            &ldquo;게임은 아이가 영어를<br>
+            한 번이라도 더 말하게 만드는 장치입니다.&rdquo;
+          </p>
+        </div>
+
+        <!-- Practice Types -->
+        <div class="practice-pill-box fade-up">
+          <div class="practice-pill-title">10월 저학년 실전 발화 트레이닝 방식</div>
+          <div class="pill-cloud">
+            <span class="pill-item">교사 발음 즉시 미러링</span>
+            <span class="pill-item">그림 보고 단어 발화</span>
+            <span class="pill-item">한글 의미 &rarr; 영단어 전환</span>
+            <span class="pill-item">소리 듣고 의미 매칭</span>
+            <span class="pill-item">친구와 묻고 답하기</span>
+            <span class="pill-item">개인전 &middot; 팀전 미션 퀴즈</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         SECTION 05 — UPPER GRADES DETAIL
+         ========================================================================== -->
+    <section class="section-wrap" style="background-color: #FFFFFF;" aria-labelledby="section-upper-title">
+      <div class="container">
+        <span class="eyebrow">Upper Grades Strategy</span>
+        <h2 id="section-upper-title" class="section-title">
+          알고 있는 문장을<br>바로 꺼낼 수 있을까요?
+        </h2>
+        
+        <!-- Gap Representation Box -->
+        <div class="gap-comparison-box fade-up">
+          <div class="gap-item ok">
+            <span class="gap-left">영어 문장 &rarr; 한국어 의미</span>
+            <span class="gap-badge ok">&check; 이해 가능</span>
+          </div>
+          <div class="gap-item challenge">
+            <span class="gap-left">한국어 의미 / 상황 &rarr; 영어 문장</span>
+            <span class="gap-badge challenge">? 바로 나오지 않을 수 있음</span>
+          </div>
+        </div>
+
+        <p class="section-desc">
+          문장을 읽고 이해하는 것과, 내가 직접 문장을 꺼내어 말하는 것은 전혀 다른 영역입니다. 리영어 고학년은 두 가지 핵심 훈련으로 발화 거리를 좁힙니다.
+        </p>
+
+        <!-- Two Training Cards -->
+        <div class="training-grid">
+          <!-- Card 01 -->
+          <div class="training-card fade-up">
+            <span class="training-num">TRAINING 01</span>
+            <h3 class="training-title">발화 자동화</h3>
+
+            <div class="training-chain">
+              <div class="chain-flow">
+                <div class="chain-row">
+                  <span>SEE (보고)</span>
+                  <span>&rarr; SPEAK</span>
+                </div>
+                <div class="chain-row">
+                  <span>MEANING (의미)</span>
+                  <span>&rarr; SPEAK</span>
+                </div>
+                <div class="chain-row">
+                  <span>SITUATION (상황)</span>
+                  <span>&rarr; SPEAK</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="training-desc">
+              하나의 문장을 반복해서 입에 올리면서 영어의 소리, 강세, 리듬, 연결과 입의 움직임에 익숙해집니다. 처음에는 문장을 보고 말하고, 점차 보지 않고 말하며, 마지막에는 의미나 상황만 보고 영어를 꺼냅니다. 생각과 영어 발화 사이의 거리를 줄이는 것이 핵심입니다.
+            </p>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="training-card fade-up">
+            <span class="training-num">TRAINING 02</span>
+            <h3 class="training-title">맥락 암송</h3>
+
+            <div class="training-chain">
+              <div class="chain-nums">
+                <span>1</span><span>&rarr;</span>
+                <span>2</span><span>&rarr;</span>
+                <span>3</span><span>&rarr;</span>
+                <span>&hellip;</span><span>&rarr;</span>
+                <span>10</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px; text-align: center;">
+                앞 문장 &rarr; 다음 장면 &rarr; 다음 표현 &rarr; 이어지는 이야기
+              </div>
+            </div>
+
+            <p class="training-desc">
+              독립된 문장 하나를 시험 보기 위해 암기하는 방식이 아닙니다. 서로 연결된 이야기의 흐름을 이해하고 전체를 영어로 이어서 말합니다. 앞 문장이 다음 문장을 불러오고, 장면과 의미가 다음 표현을 떠올리도록 훈련합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Upper Statement Block -->
+        <div class="statement-box fade-up">
+          <p class="statement-quote">
+            &ldquo;한 문장은 자동화하고,<br>
+            연결된 문장은 이야기로 암송합니다.&rdquo;
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         SECTION 06 — BOOK MUSEUM
+         ========================================================================== -->
+    <section class="section-wrap museum-section" id="book-museum" aria-labelledby="section-museum-title">
+      <div class="container">
+        <span class="eyebrow">October Book Museum</span>
+        <h2 id="section-museum-title" class="section-title">
+          읽던 영어도,<br>이제 말하는 영어로.
+        </h2>
+        <p class="section-desc">원서를 눈으로만 읽는 데서 끝내지 않고, 이야기의 소리와 흐름을 입 밖으로 표현합니다.</p>
+
+        <!-- Lower Grades Book -->
+        <article class="book-card fade-up" aria-labelledby="book-zac-title">
+          <div class="book-cover-wrap">
+            <img src="./image1.png" alt="Zac the Rat 영어 원서 표지" class="book-img" loading="lazy">
+          </div>
+          <div class="book-body">
+            <span class="book-category">&bull; LOWER GRADES BOOK</span>
+            <h3 id="book-zac-title" class="book-name">Zac the Rat</h3>
+            <p class="book-sub">단모음 파닉스 리더스</p>
+            
+            <p class="book-desc">
+              짧은 모음 short a를 중심으로 rat, can, jam, pan, fan, nap처럼 파닉스로 직접 읽을 수 있는 단어가 반복되는 이야기입니다.<br><br>
+              이번 달에는 책을 눈으로 읽는 데서 끝내지 않습니다. 보고, 듣고, 읽고, 따라 말하면서 영어 소리를 충분히 입에 올립니다.
+            </p>
+
+            <a href="https://drive.google.com/file/d/1C1uZzzowHL2rZde7x8GX3VcnRGO-Cfmd/view?usp=drivesdk" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="cta-btn">
+              책 읽기 &#8599;
+            </a>
+          </div>
+        </article>
+
+        <!-- Upper Grades Intro -->
+        <div class="upper-intro-card fade-up" style="margin-top: 40px;">
+          <span class="eyebrow" style="color: var(--brand-primary); margin-bottom: 8px;">Expansion</span>
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--text-main); margin-bottom: 8px;">
+            한 달 한 권에서, 이제 두 권으로.
+          </h3>
+          <p style="font-size: 15px; color: var(--text-body); line-height: 1.7;">
+            리영어 초등 고학년 아이들은 그동안 한 달에 한 권의 영어 원서를 읽는 '리영어 북뮤지엄'을 꾸준히 경험해 왔습니다. 사진과 문맥으로 내용을 이해하고 끝까지 읽어내는 과정에 익숙해진 만큼, 10월부터는 읽기의 폭을 넓혀 <strong>한 달에 두 권의 영어 원서</strong>를 만납니다.
+          </p>
+        </div>
+
+        <!-- Upper Grades Books (2 Columns Desktop) -->
+        <div class="upper-books-grid">
+          <!-- Book 01 -->
+          <article class="book-card fade-up" aria-labelledby="book-precip-title">
+            <div class="book-cover-wrap">
+              <img src="./image2.png" alt="Precipitation 영어 원서 표지" class="book-img" loading="lazy">
+            </div>
+            <div class="book-body">
+              <span class="book-category upper">&bull; UPPER GRADES &middot; BOOK 01</span>
+              <h4 id="book-precip-title" class="book-name">Precipitation</h4>
+              <p class="book-sub">비&middot;눈&middot;우박은 어디에서 오는 걸까요?</p>
+              
+              <p class="book-desc">
+                rain, snow, hail에서 출발해 precipitation, water vapor, clouds를 만나고 물이 증발하고 응결되어 다시 지상으로 돌아오는 water cycle까지 영어로 알아봅니다.
+              </p>
+
+              <div class="book-quote">
+                &ldquo;영어를 공부하기 위해 과학을 읽는 것이 아니라, 영어로 새로운 것을 알아가는 경험.&rdquo;
+              </div>
+
+              <a href="https://drive.google.com/file/d/1KBw_kmoLA4Fg5qTD1yOgQ1exc-0Y9w4j/view?usp=drivesdk" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="cta-btn">
+                책 읽기 &#8599;
+              </a>
+            </div>
+          </article>
+
+          <!-- Book 02 -->
+          <article class="book-card fade-up" aria-labelledby="book-fire-title">
+            <div class="book-cover-wrap">
+              <img src="./image3.png" alt="A Day in the Life of a Firefighter 영어 원서 표지" class="book-img" loading="lazy">
+            </div>
+            <div class="book-body">
+              <span class="book-category upper">&bull; UPPER GRADES &middot; BOOK 02</span>
+              <h4 id="book-fire-title" class="book-name">A Day in the Life of a Firefighter</h4>
+              <p class="book-sub">소방관의 하루를 영어로 따라가 봅니다.</p>
+              
+              <p class="book-desc">
+                소방관들은 함께 생활하고, 식사하고, 장비를 점검하고 훈련하며 출동에 대비합니다. 사진과 이야기의 흐름이 뚜렷하여 10월의 &lsquo;맥락 암송&rsquo;과 직결됩니다.
+              </p>
+
+              <div class="book-quote">
+                장면을 보고 &rarr; 상황을 떠올리고 &rarr; 영어로 말해봅니다.
+              </div>
+
+              <a href="https://drive.google.com/file/d/19_vs2vRQr2az_UbGGfEnTu554Qy6nCs5/view?usp=drivesdk" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="cta-btn">
+                책 읽기 &#8599;
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         SECTION 07 — ENDING
+         ========================================================================== -->
+    <section class="ending-section" aria-labelledby="section-ending-title">
+      <div class="container">
+        <h2 id="section-ending-title" class="ending-main-quote fade-up">
+          &ldquo;영어는 머리로만 아는 것이 아니라,<br>
+          입으로 충분히 해봐야 내 것이 됩니다.&rdquo;
+        </h2>
+
+        <div class="ending-summary-grid">
+          <div class="ending-card fade-up">
+            <div class="ending-card-role">저학년에게는</div>
+            <p class="ending-card-text">
+              영어 소리를 듣고,<br>
+              자신 있게 따라 하고,<br>
+              직접 말해 보는 즐거운 경험을.
+            </p>
+          </div>
+
+          <div class="ending-card fade-up">
+            <div class="ending-card-role">고학년에게는</div>
+            <p class="ending-card-text">
+              머릿속에 맴돌던 문장을<br>
+              망설임 없이 실제 발화로<br>
+              꺼내어 완성하는 성취를.
+            </p>
+          </div>
+        </div>
+
+        <div class="ending-final-headline fade-up">
+          아는 영어를,<br>
+          <span style="color: #6C9AFF;">입에서 나오는 영어로.</span>
+        </div>
+
+        <footer class="site-footer">
+          <p>LE ENGLISH &bull; 2026 OCTOBER</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT: MICRO-INTERACTION (SCROLL REVEAL)
+       ========================================================================== */
+  -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check for user reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      const elementsToReveal = document.querySelectorAll('.fade-up');
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        // Fallback: immediately show elements
+        elementsToReveal.forEach(el => el.classList.add('in-view'));
+        return;
+      }
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.12
+      });
+
+      elementsToReveal.forEach(el => revealObserver.observe(el));
+    });
+  </script>
+</body>
+</html>
